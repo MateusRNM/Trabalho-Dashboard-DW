@@ -4,7 +4,8 @@
     --bg-main: #121526;
     --bg-secondary: #161b2e;
     --text-primary: #fff;
-    --text-secondary: #61396a;
+    --text-secondary: #b358b9;
+    --menu-section-border: #171c2e;
     --blue-gradient: linear-gradient(#24e7e3, #5284d0);
     --purple-gradient: linear-gradient(#d470f3, #9f77f3);
 }
@@ -14,4 +15,63 @@
     padding: 0;
     box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
+    color: var(--text-primary);
+}
+
+.container {
+    display: flex;
+    width: 100dvw;
+    height: 100dvh;
+}
+
+aside {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    flex-grow: 1;
+    background-color: var(--bg-secondary);
+}
+
+aside > h4 {
+    font-size: 1.2rem;
+    font-weight: 500;
+    padding-left: 3rem;
+    padding-top: 2rem;
+}
+
+aside .menu {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+aside .menu .menu-section {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem 0 1rem;
+    border-top: 5px solid var(--menu-section-border);
+}
+
+aside .menu .menu-section .menu-title, aside .menu .menu-section .menu-item {
+    padding: 0.5rem 0rem 0.5rem 3rem;
+}
+
+aside .menu .menu-section .menu-title {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+aside .menu .menu-section .menu-title span, aside .menu .menu-section .menu-title h5 {
+    color: var(--text-secondary);
+}
+
+aside .menu .menu-section .menu-item {
+    font-size: 0.9rem;
+    font-weight: 300;
+}
+
+main {
+    flex-grow: 10;
+    background-color: var(--bg-main);
 }
