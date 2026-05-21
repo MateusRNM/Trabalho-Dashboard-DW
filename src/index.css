@@ -6,8 +6,12 @@
     --text-primary: #fff;
     --text-secondary: #b358b9;
     --menu-section-border: #171c2e;
-    --blue-gradient: linear-gradient(#24e7e3, #5284d0);
-    --purple-gradient: linear-gradient(#d470f3, #9f77f3);
+    --blue-color1: #24e7e469;
+    --blue-color2: #5284d04f;
+    --purple-color1: #e391fc79;
+    --purple-color2: #ad8cf596;
+    --blue-gradient: #24e7e3, #5284d0;
+    --purple-gradient: #d470f3, #9f77f3;
     --active-gradient: linear-gradient(#482d61, #3c3466);
     --new-bg: #d470f3;
     --text-gray: #383e55;
@@ -20,6 +24,14 @@
     box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
     color: var(--text-primary);
+}
+
+.purple-bg {
+    background: linear-gradient(to right, var(--purple-gradient));
+}
+
+.blue-bg {
+    background: linear-gradient(to right, var(--blue-gradient));
 }
 
 .container {
@@ -103,7 +115,7 @@ aside .menu .menu-section .menu-item.active::before {
     height: 100%;
     width: 1.2rem;
     border-radius: 4px;
-    background: var(--purple-gradient);
+    background: linear-gradient(to bottom, var(--purple-gradient));
     clip-path: polygon(0 0, 100% 50%, 0 100%);
 }
 
@@ -150,7 +162,7 @@ aside .reportBox > button {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background: var(--purple-gradient);
+    background: linear-gradient(to right, var(--purple-gradient));
     border: none;
     outline: none;
     border-radius: 25px;
@@ -167,6 +179,92 @@ aside .reportBox > button > span {
 }
 
 main {
+    display: flex;
+    gap: 0.5rem;
+    padding: 3.5rem 3.5rem;
     flex-grow: 10;
     background-color: var(--bg-main);
+}
+
+main .box1 {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+main .box1 .cards {
+    display: flex;
+    gap: 1.5rem;
+}
+
+main .box1 .cards .timeCard {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 1rem;
+    padding: 1.5rem 2.5rem;
+    border-radius: 15px;
+}
+
+main .box1 .cards .timeCard > div {
+    display: flex;
+    z-index: 1;
+    justify-content: center;
+    align-items: baseline;
+    gap: 0.5rem;
+}
+
+main .box1 .cards .timeCard > span {
+    z-index: 1;
+}
+
+main .box1 .cards .timeCard > div h4 {
+    font-size: 2rem;
+    font-weight: 600;
+}
+
+main .box1 .cards .timeCard > div span {
+    font-weight: 300;
+}
+
+main .box1 .cards .timeCard::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 0;
+    width: 6rem;
+    height: 100%;
+    border-radius: 15px;
+    clip-path: circle(4.8rem at left center);
+}
+
+main .box1 .cards .timeCard::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    z-index: 0;
+    width: 5rem;
+    height: 50%;
+    border-radius: 15px;
+    clip-path: circle(4rem at right bottom);
+}
+
+main .box1 .cards .timeCard:nth-child(1)::before {
+    background-color: var(--purple-color1);
+}
+
+main .box1 .cards .timeCard:nth-child(2)::before {
+    background-color: var(--blue-color1);
+}
+
+main .box1 .cards .timeCard:nth-child(1)::after {
+    background-color: var(--purple-color2);
+}
+
+main .box1 .cards .timeCard:nth-child(2)::after {
+    background-color: var(--blue-color2);
 }
