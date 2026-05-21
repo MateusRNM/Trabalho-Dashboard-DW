@@ -2,7 +2,8 @@
 
 :root {
     --bg-main: #121526;
-    --bg-secondary: #161b2e;
+    --bg-aside: #161b2e;
+    --bg-secondary: #161c32;
     --text-primary: #fff;
     --text-secondary: #b358b9;
     --menu-section-border: #171c2e;
@@ -56,7 +57,7 @@ aside {
     flex-direction: column;
     gap: 2rem;
     flex-grow: 1;
-    background-color: var(--bg-secondary);
+    background-color: var(--bg-aside);
 }
 
 aside > h4 {
@@ -200,8 +201,7 @@ main {
 main .box1 {
     display: flex;
     flex-direction: column;
-    flex-grow: 8;
-    gap: 0.5rem;
+    gap: 2rem;
 }
 
 main .box1 .cards {
@@ -293,7 +293,7 @@ main .box1 .cards .percentageBox .percentageCard {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    max-width: 18rem;
+    min-width: 18rem;
     min-height: 4rem;
     padding: 0 1.5rem;
     border-radius: 20px;
@@ -325,4 +325,13 @@ main .box1 .cards .percentageBox .percentageCard > span {
     font-weight: 200;
     padding: 0.3rem 1rem;
     border-radius: 10px;
+}
+
+main .box1 .ticketsCreatedSolvedGraph {
+    position: relative;
+    background-color: var(--bg-secondary);
+    border-radius: 15px;
+    padding: 2rem;
+    max-width: 55rem;
+    min-height: 22rem;
 }
