@@ -8,6 +8,7 @@
     --menu-section-border: #171c2e;
     --blue-gradient: linear-gradient(#24e7e3, #5284d0);
     --purple-gradient: linear-gradient(#d470f3, #9f77f3);
+    --active-gradient: linear-gradient(#482d61, #3c3466);
 }
 
 * {
@@ -20,8 +21,8 @@
 
 .container {
     display: flex;
-    width: 100dvw;
-    height: 100dvh;
+    width: 100%;
+    min-height: 100dvh;
 }
 
 aside {
@@ -48,12 +49,17 @@ aside .menu {
 aside .menu .menu-section {
     display: flex;
     flex-direction: column;
-    padding: 1rem 0 1rem;
+    padding: 0.5rem 0 0.5rem;
     border-top: 5px solid var(--menu-section-border);
+}
+
+aside .menu .menu-section:nth-child(1) {
+    border: none;
 }
 
 aside .menu .menu-section .menu-title, aside .menu .menu-section .menu-item {
     padding: 0.5rem 0rem 0.5rem 3rem;
+    min-height: 2.6rem;
 }
 
 aside .menu .menu-section .menu-title {
@@ -67,8 +73,25 @@ aside .menu .menu-section .menu-title span, aside .menu .menu-section .menu-titl
 }
 
 aside .menu .menu-section .menu-item {
-    font-size: 0.9rem;
+    position: relative;
+    font-size: 0.8rem;
     font-weight: 300;
+}
+
+aside .menu .menu-section .menu-item.active {
+    background: var(--active-gradient);
+}
+
+aside .menu .menu-section .menu-item.active::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 1.2rem;
+    border-radius: 4px;
+    background: var(--purple-gradient);
+    clip-path: polygon(0 0, 100% 50%, 0 100%);
 }
 
 main {
