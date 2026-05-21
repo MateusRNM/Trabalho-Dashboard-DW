@@ -16,6 +16,9 @@
     --new-bg: #d470f3;
     --text-gray: #383e55;
     --pink-bg: #ef85a6;
+    --text-black: #000;
+    --red-bg: #583b52;
+    --blue-bg: #155665;
 }
 
 * {
@@ -30,8 +33,16 @@
     background: linear-gradient(to right, var(--purple-gradient));
 }
 
-.blue-bg {
+.gradient-blue-bg {
     background: linear-gradient(to right, var(--blue-gradient));
+}
+
+.red-bg {
+    background-color: var(--red-bg);
+}
+
+.blue-bg {
+    background-color: var(--blue-bg);
 }
 
 .container {
@@ -189,6 +200,7 @@ main {
 main .box1 {
     display: flex;
     flex-direction: column;
+    flex-grow: 8;
     gap: 0.5rem;
 }
 
@@ -203,6 +215,7 @@ main .box1 .cards .timeCard {
     flex-direction: column;
     justify-content: space-between;
     align-items: flex-start;
+    min-height: 8rem;
     gap: 1rem;
     padding: 1.5rem 2.5rem;
     border-radius: 15px;
@@ -267,4 +280,49 @@ main .box1 .cards .timeCard:nth-child(1)::after {
 
 main .box1 .cards .timeCard:nth-child(2)::after {
     background-color: var(--blue-color2);
+}
+
+main .box1 .cards .percentageBox {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+main .box1 .cards .percentageBox .percentageCard {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 18rem;
+    min-height: 4rem;
+    padding: 0 1.5rem;
+    border-radius: 20px;
+    background-color: var(--bg-secondary);
+}
+
+main .box1 .cards .percentageBox .percentageCard .name {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+main .box1 .cards .percentageBox .percentageCard .name span {
+    padding: 0.4rem;
+    border-radius: 50%;
+    color: var(--text-black);
+}
+
+main .box1 .cards .percentageBox .percentageCard:nth-child(1) .name span {
+    background: linear-gradient(to bottom, var(--pink-bg), var(--new-bg));
+}
+
+main .box1 .cards .percentageBox .percentageCard .name h5 {
+    font-weight: 400;
+}
+
+main .box1 .cards .percentageBox .percentageCard > span {
+    font-size: 0.8rem;
+    font-weight: 200;
+    padding: 0.3rem 1rem;
+    border-radius: 10px;
 }
