@@ -9,6 +9,9 @@
     --blue-gradient: linear-gradient(#24e7e3, #5284d0);
     --purple-gradient: linear-gradient(#d470f3, #9f77f3);
     --active-gradient: linear-gradient(#482d61, #3c3466);
+    --new-bg: #d470f3;
+    --text-gray: #383e55;
+    --pink-bg: #ef85a6;
 }
 
 * {
@@ -73,9 +76,19 @@ aside .menu .menu-section .menu-title span, aside .menu .menu-section .menu-titl
 }
 
 aside .menu .menu-section .menu-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     position: relative;
     font-size: 0.8rem;
     font-weight: 300;
+}
+
+.menu-item span.newBadge {
+    background-color: var(--new-bg);
+    padding: 0.2rem 0.8rem;
+    border-radius: 12px;
+    margin-right: 3rem;
 }
 
 aside .menu .menu-section .menu-item.active {
@@ -92,6 +105,65 @@ aside .menu .menu-section .menu-item.active::before {
     border-radius: 4px;
     background: var(--purple-gradient);
     clip-path: polygon(0 0, 100% 50%, 0 100%);
+}
+
+aside .reportBox {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding-left: 2.5rem;
+}
+
+aside .reportBox .title {
+    display: flex;
+    gap: 3rem;
+}
+
+aside .reportBox .title div {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+aside .reportBox .title div h5 {
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+aside .reportBox .title div span {
+    font-size: 0.85rem;
+    color: var(--text-gray);
+}
+
+aside .reportBox .title > span {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--pink-bg);
+    border-radius: 4px;
+    font-size: 0.7rem;
+    padding: 0.5rem;
+    max-height: 50%;
+}
+
+aside .reportBox > button {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: var(--purple-gradient);
+    border: none;
+    outline: none;
+    border-radius: 25px;
+    padding: 0 2rem;
+    max-width: 85%;
+    min-height: 2.5rem;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+aside .reportBox > button > span {
+    font-size: 1.1rem;
 }
 
 main {
