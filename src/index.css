@@ -4,11 +4,13 @@
     --bg-main: #121526;
     --bg-aside: #161b2e;
     --bg-secondary: #161c32;
+    --bg-third: #242d4d;
     --text-primary: #fff;
     --text-secondary: #b358b9;
     --menu-section-border: #171c2e;
     --blue-color1: #24e7e469;
     --blue-color2: #5284d04f;
+    --blue-color3: #175f9e;
     --purple-color1: #e391fc79;
     --purple-color2: #ad8cf596;
     --blue-gradient: #24e7e3, #5284d0;
@@ -58,7 +60,7 @@ aside {
     display: flex;
     flex-direction: column;
     gap: 2rem;
-    flex-grow: 1;
+    flex-grow: 3;
     background-color: var(--bg-aside);
 }
 
@@ -194,9 +196,9 @@ aside .reportBox > button > span {
 
 main {
     display: flex;
-    gap: 0.5rem;
+    flex-grow: 1;
+    gap: 2.5rem;
     padding: 3.5rem 3.5rem;
-    flex-grow: 10;
 }
 
 main .box1 {
@@ -402,4 +404,54 @@ main .box1 .graphCardsBox .graphCard .legend-percent {
 main .box1 .graphCardsBox .graphCard .legend-label {
     font-size: 0.9rem;
     font-weight: 600;
+}
+
+main .box2 {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+main .box2 .graphBox {
+    background-color: var(--bg-secondary);
+    border-radius: 15px;
+    padding: 2rem;
+}
+
+main .box2 .graph1 {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1.2rem;
+}
+
+main .box2 .graph1 .statementBox {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    min-height: 3rem;
+    padding: 0 1rem;
+    background-color: var(--bg-third);
+    border-radius: 4px;
+}
+
+main .box2 .graph1 .statementBox > h5 {
+    font-weight: 400;
+}
+
+main .box2 .graph1 .statementBox > span {
+    color: var(--blue-color3);
+}
+
+main .box2 .graph1 .graph {
+    position: relative;
+    width: 100%;
+    min-height: 15rem;
+}
+
+main .box2 .graph2 {
+    position: relative;
+    flex-grow: 2;
 }

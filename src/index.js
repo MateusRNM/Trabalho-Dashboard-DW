@@ -1,6 +1,7 @@
 const canvasCreatedSolvedGraph = document.getElementById('graphCreatedSolved');
 const canvasTicketsByTypeGraph = document.getElementById('graphTicketsByType');
 const canvasNewTicketsReturnedTicketsGraph = document.getElementById('graphNewTicketsReturnedTickets');
+const canvasFirstReplyAndFullResolveTime = document.getElementById('firstReplyAndFullResolveTime');
 
 const fontConfig = {
     family: 'Poppins, sans-serif',
@@ -200,4 +201,99 @@ const newTicketsReturnedTicketsGraph = new Chart(canvasNewTicketsReturnedTickets
         }
     },
     plugins: [centerTextPlugin]
+});
+
+const ctxArea = canvasFirstReplyAndFullResolveTime.getContext('2d');
+
+const gradientBlue = ctxArea.createLinearGradient(0, 0, 0, 300);
+gradientBlue.addColorStop(0, 'rgba(41, 168, 219, 0.8)');
+gradientBlue.addColorStop(1, 'rgba(41, 168, 219, 0.05)');
+
+const gradientPurple = ctxArea.createLinearGradient(0, 0, 0, 300);
+gradientPurple.addColorStop(0, 'rgba(159, 119, 243, 0.8)'); 
+gradientPurple.addColorStop(1, 'rgba(41, 168, 219, 0.05)'); 
+
+const firstReplyAndFullResolveTimeGraph = new Chart(canvasFirstReplyAndFullResolveTime, {
+    type: 'line',
+    data: {
+        labels: ['01 Oct', '02 Oct', '03 Oct', '04 Oct', '05 Oct', '06 Oct', '07 Oct'],
+        datasets: [
+            {
+                label: 'First Reply',
+                data: [0.6, 0.4, 0.8, 1.2, 0.5, 0.5, 1],
+                borderColor: '#29a8db',
+                backgroundColor: gradientBlue, 
+                borderWidth: 2,
+                fill: true, 
+                tension: 0.4, 
+                pointRadius: 0,
+                pointHoverRadius: 6,
+                pointHoverBackgroundColor: '#29a8db',
+                pointHoverBorderColor: 'rgba(41, 168, 219, 0.4)',
+                pointHoverBorderWidth: 10
+            },
+            {
+                label: 'Full Resolve',
+                data: [0.9, 1, 0.6, 0.4, 0.8, 0.5, 0.7],
+                borderColor: '#9f77f3',
+                backgroundColor: gradientPurple,
+                borderWidth: 2,
+                fill: true,
+                tension: 0.7,
+                pointRadius: 0,
+                pointHoverRadius: 6,
+                pointHoverBackgroundColor: '#9f77f3',
+                pointHoverBorderColor: 'rgba(159, 119, 243, 0.4)',
+                pointHoverBorderWidth: 10
+            }
+        ]
+    },
+    options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        interaction: {
+            mode: 'index',
+            intersect: false,
+        },
+        plugins: {
+            title: {
+                display: true,
+                text: 'First Reply and Full Resolve Time',
+                align: 'start',
+                color: '#fff',
+                font: fontConfig,
+            },
+            legend: {
+                display: false
+            },
+            tooltip: {
+                backgroundColor: '#29a8db',
+                titleColor: 'rgba(255, 255, 255, 0.8)',
+                titleFont: { ...fontConfig, size: 11, weight: 'normal' },
+                bodyColor: '#fff',
+                bodyFont: { ...fontConfig, size: 14, weight: 'bold' },
+                padding: 12,
+                displayColors: false,
+                callbacks: {
+                    title: function(context) {
+                        return context[0].label;
+                    },
+
+                    label: function(context) {
+                        return context.parsed.y + ' hours';
+                    }
+                }
+            }
+        },
+        scales: {
+            x: {
+                display: false
+            },
+            y: {
+                display: false,
+                min: 0,
+                max: 2
+            }
+        }
+    }
 });
