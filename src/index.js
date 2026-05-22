@@ -2,6 +2,7 @@ const canvasCreatedSolvedGraph = document.getElementById('graphCreatedSolved');
 const canvasTicketsByTypeGraph = document.getElementById('graphTicketsByType');
 const canvasNewTicketsReturnedTicketsGraph = document.getElementById('graphNewTicketsReturnedTickets');
 const canvasFirstReplyAndFullResolveTime = document.getElementById('firstReplyAndFullResolveTime');
+const canvasNumberOfTickets = document.getElementById('numberOfTickets');
 
 const fontConfig = {
     family: 'Poppins, sans-serif',
@@ -203,15 +204,15 @@ const newTicketsReturnedTicketsGraph = new Chart(canvasNewTicketsReturnedTickets
     plugins: [centerTextPlugin]
 });
 
-const ctxArea = canvasFirstReplyAndFullResolveTime.getContext('2d');
+const ctxArea1 = canvasFirstReplyAndFullResolveTime.getContext('2d');
 
-const gradientBlue = ctxArea.createLinearGradient(0, 0, 0, 300);
+const gradientBlue = ctxArea1.createLinearGradient(0, 0, 0, 300);
 gradientBlue.addColorStop(0, 'rgba(41, 168, 219, 0.8)');
 gradientBlue.addColorStop(1, 'rgba(41, 168, 219, 0.05)');
 
-const gradientPurple = ctxArea.createLinearGradient(0, 0, 0, 300);
-gradientPurple.addColorStop(0, 'rgba(159, 119, 243, 0.8)'); 
-gradientPurple.addColorStop(1, 'rgba(41, 168, 219, 0.05)'); 
+const gradientPurple = ctxArea1.createLinearGradient(0, 0, 0, 300);
+gradientPurple.addColorStop(0, 'rgba(159, 119, 243, 0.8)');
+gradientPurple.addColorStop(1, 'rgba(41, 168, 219, 0.05)');
 
 const firstReplyAndFullResolveTimeGraph = new Chart(canvasFirstReplyAndFullResolveTime, {
     type: 'line',
@@ -293,6 +294,64 @@ const firstReplyAndFullResolveTimeGraph = new Chart(canvasFirstReplyAndFullResol
                 display: false,
                 min: 0,
                 max: 2
+            }
+        }
+    }
+});
+
+const ctxArea2 = canvasNumberOfTickets.getContext('2d');
+const gradientBlue2 = ctxArea1.createLinearGradient(0, 0, 0, 400);
+gradientBlue2.addColorStop(0, 'rgba(36, 231, 227, 1)');
+gradientBlue2.addColorStop(1, 'rgba(159, 119, 243, 1)');
+
+const numberOfTicketsGraph = new Chart(canvasNumberOfTickets, {
+    type: 'bar',
+    data: {
+      labels: ['Mon', 'Tue', 'Wed', 'Thur', 'Fri', 'Sat'],
+      datasets: [
+        {
+            label: 'Tickets Number',
+            data: [60, 20, 70, 50, 90, 60],
+            borderWidth: 2,
+            backgroundColor: gradientBlue2,
+        }
+      ]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      interaction: {
+        mode: 'index',
+        intersect: false
+      },
+      plugins: {
+        title: {
+            display: true,
+            text: 'Number of Tickets / Week Day',
+            align: 'start',
+            color: '#fff',
+            font: fontConfig,
+        },
+        legend: {
+            display: false
+        }
+      },
+      scales: {
+            y: {
+                min: 0,
+                max: 100,
+                grid: {
+                    color: '#33334c',
+                    drawBorder: false
+                },
+                ticks: { display: false }
+            },
+            x: {
+                grid: {
+                    color: '#33334c',
+                    drawBorder: false,
+                },
+                ticks: { color: '#8888a3' }
             }
         }
     }

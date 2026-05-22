@@ -198,7 +198,7 @@ main {
     display: flex;
     flex-grow: 1;
     gap: 2.5rem;
-    padding: 3.5rem 3.5rem;
+    padding: 3rem 3rem;
 }
 
 main .box1 {
@@ -416,6 +416,7 @@ main .box2 .graphBox {
     background-color: var(--bg-secondary);
     border-radius: 15px;
     padding: 2rem;
+    max-width: 25rem;
 }
 
 main .box2 .graph1 {
@@ -453,5 +454,5 @@ main .box2 .graph1 .graph {
 
 main .box2 .graph2 {
     position: relative;
-    flex-grow: 2;
+    min-height: 27.5rem;
 }
