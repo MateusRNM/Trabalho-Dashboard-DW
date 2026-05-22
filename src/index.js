@@ -1,4 +1,6 @@
 const canvasCreatedSolvedGraph = document.getElementById('graphCreatedSolved');
+const canvasTicketsByTypeGraph = document.getElementById('graphTicketsByType');
+const canvasNewTicketsReturnedTicketsGraph = document.getElementById('graphNewTicketsReturnedTickets');
 
 const fontConfig = {
     family: 'Poppins, sans-serif',
@@ -91,5 +93,61 @@ const createdSolvedGraph = new Chart(canvasCreatedSolvedGraph, {
                 ticks: { color: '#8888a3' }
             }
         }
+    }
+});
+
+const ticketsByTypeGraph = new Chart(canvasTicketsByTypeGraph, {
+    type: 'doughnut',
+    data: {
+      labels: ['Sales', 'Setup', 'Bug', 'Features'],
+      datasets: [
+        {
+            data: [12, 25, 44, 19],
+            backgroundColor: [
+                '#04fdef',
+                '#156f9c',
+                '#0091ff',
+                '#043bef'
+            ],
+            hoverOffset: 4
+        }
+      ]
+    },
+    plugins: [ChartDataLabels],
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      borderWidth: 0,
+      cutout: '65%',
+      plugins: {
+        title: {
+            display: true,
+            text: 'Tickets By Type',
+            align: 'start',
+            color: '#fff',
+            font: fontConfig,
+        },
+        legend: {
+            position: 'right',
+            align: 'start',
+            labels: {
+                usePointStyle: true,
+                color: '#fff'
+            }
+        },
+        datalabels: {
+            color: '#000',
+            font: {
+                ...fontConfig,
+                size: 12
+            },
+            formatter: (value, context) => {
+                const dataset = context.chart.data.datasets[0].data;
+                const total = dataset.reduce((sum, item) => sum + item, 0);
+                const percentage = (value / total * 100).toFixed(0);
+                return percentage + '%';
+            }
+        }
+      }
     }
 });

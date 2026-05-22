@@ -335,3 +335,18 @@ main .box1 .ticketsCreatedSolvedGraph {
     max-width: 55rem;
     min-height: 22rem;
 }
+
+main .box1 .graphCardsBox {
+    display: flex;
+    gap: 2rem;
+    justify-content: space-between;
+}
+
+main .box1 .graphCardsBox .graphCard {
+    position: relative;
+    background-color: var(--bg-secondary);
+    border-radius: 15px;
+    padding: 2rem;
+    width: 50%;
+    max-height: 18rem;
+}
