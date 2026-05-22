@@ -20,6 +20,8 @@
     --text-black: #000;
     --red-bg: #583b52;
     --blue-bg: #155665;
+    --purple-graph: #b200fe;
+    --pink-graph: #db12c3;
 }
 
 * {
@@ -48,8 +50,8 @@
 
 .container {
     display: flex;
-    width: 100%;
     min-height: 100dvh;
+    background-color: var(--bg-main);
 }
 
 aside {
@@ -195,7 +197,6 @@ main {
     gap: 0.5rem;
     padding: 3.5rem 3.5rem;
     flex-grow: 10;
-    background-color: var(--bg-main);
 }
 
 main .box1 {
@@ -343,10 +344,62 @@ main .box1 .graphCardsBox {
 }
 
 main .box1 .graphCardsBox .graphCard {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     position: relative;
     background-color: var(--bg-secondary);
     border-radius: 15px;
-    padding: 2rem;
-    width: 50%;
+    padding: 1rem;
+    width: 48%;
     max-height: 18rem;
+}
+
+main .box1 .graphCardsBox .graphCard .custom-legend {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-start;
+    height: 100%;
+    gap: 0.8rem;
+}
+
+main .box1 .graphCardsBox .graphCard .chart-wrapper {
+    max-width: 14rem;
+    max-height: 14rem;
+}
+
+main .box1 .graphCardsBox .graphCard .legend-item {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+}
+
+main .box1 .graphCardsBox .graphCard .legend-item::before {
+    content: '';
+    width: 1rem;
+    height: 1rem;
+    border-radius: 50%;
+    border: 4px solid var(--pink-graph);
+    background-color: transparent;
+}
+
+main .box1 .graphCardsBox .graphCard .legend-item:nth-child(1)::before {
+    border-color: var(--purple-graph);
+}
+
+main .box1 .graphCardsBox .graphCard .legend-text {
+    display: flex;
+    flex-direction: column;
+}
+
+main .box1 .graphCardsBox .graphCard .legend-percent {
+    color: var(--text-gray);
+    font-size: 0.85rem;
+    font-weight: 500;
+}
+
+main .box1 .graphCardsBox .graphCard .legend-label {
+    font-size: 0.9rem;
+    font-weight: 600;
 }

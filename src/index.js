@@ -8,6 +8,21 @@ const fontConfig = {
     size: 15
 }
 
+const centerTextPlugin = {
+    id: 'centerText',
+    beforeDraw: function(chart) {
+        const { width, height, ctx } = chart;
+        ctx.restore();
+        ctx.font = "14px Poppins, sans-serif";
+        ctx.fillStyle = "#8888a3";
+        ctx.textBaseline = "middle";
+        ctx.textAlign = "center";
+        ctx.fillText("Returned Tickets", width / 2, height / 2);
+        ctx.fillText("1,200", width / 2, height / 2 + 15);
+        ctx.save();
+    }
+};
+
 const createdSolvedGraph = new Chart(canvasCreatedSolvedGraph, {
     type: 'line',
     data: {
@@ -150,4 +165,39 @@ const ticketsByTypeGraph = new Chart(canvasTicketsByTypeGraph, {
         }
       }
     }
+});
+
+const newTicketsReturnedTicketsGraph = new Chart(canvasNewTicketsReturnedTicketsGraph, {
+    type: 'doughnut',
+    data: {
+        labels: ['Returned Tickets', 'New Tickets'],
+        datasets: [{
+            data: [62.8, 38.2],
+            backgroundColor: [
+                '#db12c3',
+                '#b200fe'
+            ],
+            borderWidth: 0, 
+            borderRadius: 20, 
+            spacing: 5,
+            cutout: '75%'
+        }]
+    },
+    options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+            title: {
+                display: true,
+                text: 'New Tickets vs Returned Tickets',
+                align: 'start',
+                color: '#fff',
+                font: fontConfig,
+            },
+            legend: {
+                display: false
+            }
+        }
+    },
+    plugins: [centerTextPlugin]
 });
