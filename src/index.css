@@ -110,6 +110,25 @@ aside .menu .menu-section .menu-item {
     position: relative;
     font-size: 0.8rem;
     font-weight: 300;
+    cursor: pointer;
+    z-index: 1;
+}
+
+aside .menu .menu-section .menu-item::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    opacity: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    transition: opacity 0.3s ease-in-out;
+    background: var(--active-gradient);
+}
+
+aside .menu .menu-section .menu-item:hover::before {
+    opacity: 1;
 }
 
 .menu-item span.newBadge {
@@ -133,6 +152,7 @@ aside .menu .menu-section .menu-item.active::before {
     border-radius: 4px;
     background: linear-gradient(to bottom, var(--purple-gradient));
     clip-path: polygon(0 0, 100% 50%, 0 100%);
+    opacity: 1;
 }
 
 aside .reportBox {
