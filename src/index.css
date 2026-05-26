@@ -34,6 +34,10 @@
     color: var(--text-primary);
 }
 
+body {
+    background-color: var(--bg-main);
+}
+
 .purple-bg {
     background: linear-gradient(to right, var(--purple-gradient));
 }
@@ -52,15 +56,16 @@
 
 .container {
     display: flex;
+    width: 100%;
     min-height: 100dvh;
-    background-color: var(--bg-main);
 }
 
 aside {
     display: flex;
     flex-direction: column;
     gap: 2rem;
-    flex-grow: 3;
+    width: 20%;
+    flex-shrink: 0;
     background-color: var(--bg-aside);
 }
 
@@ -203,8 +208,8 @@ aside .reportBox > button {
     outline: none;
     border-radius: 25px;
     padding: 0 2rem;
-    max-width: 85%;
-    min-height: 2.5rem;
+    width: 85%;
+    height: 2.5rem;
     font-size: 0.9rem;
     font-weight: 600;
     cursor: pointer;
@@ -216,7 +221,7 @@ aside .reportBox > button > span {
 
 main {
     display: flex;
-    flex-grow: 1;
+    flex: 1;
     gap: 2.5rem;
     padding: 3rem 3rem;
 }
@@ -229,12 +234,14 @@ main .box1 {
 
 main .box1 .cards {
     display: flex;
+    flex-wrap: wrap;
     gap: 1.5rem;
 }
 
 main .box1 .cards .timeCard {
     position: relative;
     display: flex;
+    flex: 1;
     flex-direction: column;
     justify-content: space-between;
     align-items: flex-start;
@@ -355,8 +362,8 @@ main .box1 .ticketsCreatedSolvedGraph {
     background-color: var(--bg-secondary);
     border-radius: 15px;
     padding: 2rem;
-    max-width: 55rem;
-    min-height: 22rem;
+    width: 100%;
+    height: 22rem;
 }
 
 main .box1 .graphCardsBox {
@@ -367,14 +374,14 @@ main .box1 .graphCardsBox {
 
 main .box1 .graphCardsBox .graphCard {
     display: flex;
+    flex: 1;
     justify-content: space-between;
     align-items: center;
     position: relative;
     background-color: var(--bg-secondary);
     border-radius: 15px;
     padding: 1rem;
-    width: 48%;
-    max-height: 18rem;
+    height: 18rem;
 }
 
 main .box1 .graphCardsBox .graphCard .custom-legend {
@@ -387,8 +394,8 @@ main .box1 .graphCardsBox .graphCard .custom-legend {
 }
 
 main .box1 .graphCardsBox .graphCard .chart-wrapper {
-    max-width: 14rem;
-    max-height: 14rem;
+    width: 14rem;
+    height: 14rem;
 }
 
 main .box1 .graphCardsBox .graphCard .legend-item {
@@ -436,7 +443,7 @@ main .box2 .graphBox {
     background-color: var(--bg-secondary);
     border-radius: 15px;
     padding: 2rem;
-    max-width: 25rem;
+    width: 100%;
 }
 
 main .box2 .graph1 {
@@ -469,10 +476,10 @@ main .box2 .graph1 .statementBox > span {
 main .box2 .graph1 .graph {
     position: relative;
     width: 100%;
-    min-height: 15rem;
+    height: 15rem;
 }
 
 main .box2 .graph2 {
     position: relative;
-    min-height: 27.5rem;
+    height: 27.5rem;
 }
